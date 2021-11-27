@@ -3,10 +3,8 @@
 ### Feautres
 
 * select form list using arrows and enter
-* notes removal
-* notes sorting while listing
-* notes edit/update date
 * make git synchronization
+* notes installation
 
 ### Improvements
 
