@@ -4,7 +4,7 @@
 
 * select form list using arrows and enter
 * make git synchronization
-* notes installation
+* notes installation for powershell
 
 ### Improvements
 

@@ -1,1 +1,3 @@
 *.conf
+
+generate_notes_bash_source.sh
