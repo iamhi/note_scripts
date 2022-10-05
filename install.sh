@@ -22,4 +22,13 @@ echo "Enter notes location"
 read notes_location
 
 ./set_notes_location.sh ${notes_location/'~'/"$HOME"}
+
+echo "Enter remote service {user}@{hostname}"
+
+read remote_hostname
+
+./set_notes_location.sh ${notes_location/'~'/"$HOME"}
+
+./set_remote_service.sh $remote_hostname
+
 ./generate_notes_bash_source.sh

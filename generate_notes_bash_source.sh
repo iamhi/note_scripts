@@ -35,6 +35,13 @@ set_notes_location() {
 	cd \$current_loc
 }
 
+set_remote_service() {
+	current_loc=\$PWD
+	cd $SCRIPT_DIR
+	./set_remote_service.sh \$1
+	cd \$current_loc
+}
+
 open_note() {
 	USE_REMOTE=false
 
