@@ -5,9 +5,26 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 echo "#/bin/bash
 
 list_notes() {
+	USE_REMOTE=false
+
+	while getopts \":r\" ARG; do
+	case \"\$ARG\" in
+		r)
+			USE_REMOTE=true
+			;;
+		esac
+	done
+
 	current_loc=\$PWD
 	cd $SCRIPT_DIR
-	./list_notes.sh
+
+	if \$USE_REMOTE
+	then
+		./remote_list_notes.sh
+	else
+		./list_notes.sh
+	fi
+
 	cd \$current_loc
 }
 
@@ -19,23 +36,74 @@ set_notes_location() {
 }
 
 open_note() {
+	USE_REMOTE=false
+
+	while getopts \":r\" ARG; do
+	case \"\$ARG\" in
+		r)
+			USE_REMOTE=true
+			;;
+		esac
+	done
+
 	current_loc=\$PWD
 	cd $SCRIPT_DIR
-	./open_note.sh \$1
+
+	if \$USE_REMOTE
+	then
+		./remote_open_note.sh \$2
+	else
+		./open_note.sh \$1
+	fi
+
 	cd \$current_loc
 }
 
 show_note() {
+	USE_REMOTE=false
+
+	while getopts \":r\" ARG; do
+	case \"\$ARG\" in
+		r)
+			USE_REMOTE=true
+			;;
+		esac
+	done
+
 	current_loc=\$PWD
 	cd $SCRIPT_DIR
-	./show_note.sh \$1
+
+	if \$USE_REMOTE
+	then
+		./remote_show_note.sh \$2
+	else
+		./show_note.sh \$1
+	fi
+
 	cd \$current_loc
 }
 
 delete_note() {
+	USE_REMOTE=false
+
+	while getopts \":r\" ARG; do
+	case \"\$ARG\" in
+		r)
+			USE_REMOTE=true
+			;;
+		esac
+	done
+
 	current_loc=\$PWD
 	cd $SCRIPT_DIR
-	./delete_note.sh \$1
+
+	if \$USE_REMOTE
+	then
+		./remote_delete_note.sh \$2
+	else
+		./delete_note.sh \$1
+	fi
+
 	cd \$current_loc
 }" > notes_bash_source.sh
 
